@@ -11,12 +11,15 @@ app.get('/', (req, res) =>{
 
 app.use(express.static(path.join(__dirname, '../public')))
 
-const Rollbar = require('rollbar')
+const Rollbar = require("rollbar");
 const rollbar = new Rollbar({
-  accessToken: '0eac6c2b530e417b80559513559d3b10',
+  accessToken: '1fd899240611427ba8912623de7a831d',
   captureUncaught: true,
-  captureUnhandledRejections: true,
-})
+  captureUnhandledRejections: true
+});
+
+// record a generic message and send it to Rollbar
+rollbar.log("Hello world!");
 
 // record a generic message and send it to Rollbar
 rollbar.log('Hello world!')
